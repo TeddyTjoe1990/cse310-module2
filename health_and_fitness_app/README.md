@@ -49,6 +49,6 @@ lib/
 
 
 ## Contact
-Built using Flutter
+Built using Flutter.
 For questions or collaboration:
 🔗 GitHub: @TeddyTjoe1990
