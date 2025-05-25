@@ -1,24 +1,5 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Health & Fitness App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue),
-        useMaterial3: true,
-      ),
-      home: const LoginPage(title: 'Login Page'),
-    );
-  }
-}
+import 'dashboard_page.dart';  
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, required this.title});
@@ -37,11 +18,11 @@ class _LoginPageState extends State<LoginPage> {
   void _login() {
     if (_formKey.currentState!.validate()) {
       String email = _emailController.text;
-      String password = _passwordController.text;
 
-      // Nanti bisa dihubungkan ke backend atau Firebase.
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Login succeed for $email')),
+      // Navigasi ke dashboard kalau login berhasil
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => DashboardPage(email: email)),
       );
     }
   }
@@ -60,7 +41,6 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Email Field
               TextFormField(
                 controller: _emailController,
                 decoration: const InputDecoration(
@@ -68,18 +48,12 @@ class _LoginPageState extends State<LoginPage> {
                   border: OutlineInputBorder(),
                 ),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Email cannot be empty';
-                  }
-                  if (!value.contains('@')) {
-                    return 'Enter a valid email';
-                  }
+                  if (value == null || value.isEmpty) return 'Email cannot be empty';
+                  if (!value.contains('@')) return 'Enter a valid email';
                   return null;
                 },
               ),
               const SizedBox(height: 16),
-
-              // Password Field
               TextFormField(
                 controller: _passwordController,
                 obscureText: true,
@@ -88,18 +62,12 @@ class _LoginPageState extends State<LoginPage> {
                   border: OutlineInputBorder(),
                 ),
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'The password cannot be empty';
-                  }
-                  if (value.length < 6) {
-                    return 'Password must be at least 6 characters';
-                  }
+                  if (value == null || value.isEmpty) return 'The password cannot be empty';
+                  if (value.length < 6) return 'Password must be at least 6 characters';
                   return null;
                 },
               ),
               const SizedBox(height: 24),
-
-              // Login Button
               ElevatedButton(
                 onPressed: _login,
                 style: ElevatedButton.styleFrom(
