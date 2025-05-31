@@ -44,8 +44,20 @@ flutter run
 ## Project Structure
 
 lib/
-│
-├── main.dart             # Entry point
+├── pages/
+│   ├── login_page.dart
+│   ├── dashboard_page.dart
+│   ├── food_log_page.dart
+│   ├── plan_page.dart
+│   ├── water_tracker_page.dart
+│   ├── weight_chart_page.dart
+│   └── register_page.dart
+├── widgets/
+│   ├── health_plan_card.dart
+    ├── water_progress_widget.dart
+├── theme_provider.dart
+└── main.dart
+
 
 
 ## Contact
