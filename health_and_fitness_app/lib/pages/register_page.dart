@@ -27,7 +27,7 @@ class RegisterPage extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (_) => DashboardPage()),
+                  MaterialPageRoute(builder: (_) => DashboardPage(username: '',)),
                 );
               },
               child: Text('Register'),

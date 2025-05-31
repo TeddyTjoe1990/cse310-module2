@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       themeMode: themeProvider.themeMode, // pakai mode dari provider
       home: LoginPage(),
       routes: {
-        '/dashboard': (context) => DashboardPage(),
+        '/dashboard': (context) => DashboardPage(username: '',),
         '/plan': (context) => PlanPage(),
         '/weight': (context) => WeightChartPage(),
         '/food': (context) => FoodLogPage(),

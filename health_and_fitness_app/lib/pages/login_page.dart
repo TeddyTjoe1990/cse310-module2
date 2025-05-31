@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dashboard_page.dart';
-import 'register_page.dart'; // import yang benar jika register_page.dart di folder yang sama
+import 'register_page.dart';
 
 class LoginPage extends StatelessWidget {
   final _usernameController = TextEditingController();
@@ -26,9 +26,16 @@ class LoginPage extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
+                String username = _usernameController.text.trim();
+                if (username.isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Please enter a username')),
+                  );
+                  return;
+                }
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (_) => DashboardPage()),
+                  MaterialPageRoute(builder: (_) => DashboardPage(username: username)),
                 );
               },
               child: Text('Login'),

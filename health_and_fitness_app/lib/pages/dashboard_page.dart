@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '/theme_provider.dart'; // Pastikan file ini ada dan sudah kamu buat
+import '../theme_provider.dart';  // Pastikan kamu sudah punya file ini untuk dark mode
 
 class DashboardPage extends StatelessWidget {
+  final String username;
+
+  DashboardPage({required this.username});
+
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
@@ -16,7 +20,7 @@ class DashboardPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Welcome to Your Fitness App!',
+                'Welcome, $username!',
                 style: TextStyle(fontSize: 18),
               ),
               SizedBox(height: 20),
