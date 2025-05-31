@@ -35,7 +35,7 @@ If you're new to Flutter, here are a few resources to help you get up and runnin
 Make sure Flutter is installed on your machine. Then, follow these steps:
 
 ```bash
-git clone https://github.com/your-username/health_and_fitness_app.git
+git clone https://github.com/TeddyTjoe1990/cse310-module2/health_and_fitness_app.git
 cd health_and_fitness_app
 flutter pub get
 flutter run
