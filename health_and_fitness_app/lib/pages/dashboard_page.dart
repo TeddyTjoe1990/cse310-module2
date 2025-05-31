@@ -5,7 +5,7 @@ import '../theme_provider.dart';  // Make sure this file exists and manages the 
 class DashboardPage extends StatelessWidget {
   final String username; // Passed from previous screen to personalize greeting
 
-  DashboardPage({required this.username});
+  const DashboardPage({Key? key, required this.username}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
