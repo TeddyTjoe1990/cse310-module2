@@ -54,7 +54,7 @@ lib/
 │   └── register_page.dart
 ├── widgets/
 │   ├── health_plan_card.dart
-    ├── water_progress_widget.dart
+│   ├── water_progress_widget.dart
 ├── theme_provider.dart
 └── main.dart
 
