@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'dashboard_page.dart';
-import 'register_page.dart'; // import yang benar jika register_page.dart di folder yang sama
+import 'dashboard_page.dart'; // pastikan ini juga benar jika dibutuhkan
 
-class LoginPage extends StatelessWidget {
+class RegisterPage extends StatelessWidget {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Login')),
+      appBar: AppBar(title: Text('Register')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -31,16 +30,7 @@ class LoginPage extends StatelessWidget {
                   MaterialPageRoute(builder: (_) => DashboardPage()),
                 );
               },
-              child: Text('Login'),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => RegisterPage()),
-                );
-              },
-              child: Text("Don't have an account? Register"),
+              child: Text('Register'),
             ),
           ],
         ),

@@ -8,6 +8,7 @@ import 'pages/weight_chart_page.dart';
 import 'pages/food_log_page.dart';
 import 'pages/water_tracker_page.dart';
 import 'theme_provider.dart';
+import 'pages/register_page.dart';
 
 void main() => runApp(
       ChangeNotifierProvider(
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
         '/weight': (context) => WeightChartPage(),
         '/food': (context) => FoodLogPage(),
         '/water': (context) => WaterTrackerPage(),
+        '/register': (context) => RegisterPage(),
       },
     );
   }
