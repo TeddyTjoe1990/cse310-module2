@@ -12,6 +12,7 @@ import 'pages/register_page.dart';
 
 void main() => runApp(
       ChangeNotifierProvider(
+        // Provide ThemeProvider to the entire app
         create: (_) => ThemeProvider(),
         child: MyApp(),
       ),
@@ -20,16 +21,17 @@ void main() => runApp(
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Access the current theme mode from provider
     final themeProvider = Provider.of<ThemeProvider>(context);
 
     return MaterialApp(
-      title: 'Health & Fitness',
+      title: 'Health & Fitness', // App title
       theme: ThemeData(
-        brightness: Brightness.light,
+        brightness: Brightness.light, // Light theme settings
         primarySwatch: Colors.green,
       ),
       darkTheme: ThemeData(
-        brightness: Brightness.dark,
+        brightness: Brightness.dark, // Dark theme settings
         primarySwatch: Colors.green,
         scaffoldBackgroundColor: Colors.black,
         cardColor: Colors.grey[900],
@@ -37,9 +39,10 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.grey[900],
         ),
       ),
-      themeMode: themeProvider.themeMode, // pakai mode dari provider
-      home: LoginPage(),
+      themeMode: themeProvider.themeMode,  // Use theme mode from ThemeProvider
+      home: LoginPage(), // Start the app on the login page
       routes: {
+        // Define all navigation routes
         '/dashboard': (context) => DashboardPage(username: '',),
         '/plan': (context) => PlanPage(),
         '/weight': (context) => WeightChartPage(),
