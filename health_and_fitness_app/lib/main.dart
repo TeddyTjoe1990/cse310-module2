@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
-import 'login_page.dart';
+import 'pages/dashboard_page.dart';
+import 'pages/plan_page.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(HealthFitnessApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  
+class HealthFitnessApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Health & Fitness App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue),
-        useMaterial3: true,
-      ),
-      home: const LoginPage(title: 'Login Page'),
+      title: 'Health & Fitness',
+      theme: ThemeData(primarySwatch: Colors.green),
+      home: DashboardPage(),
+      routes: {
+        '/plan': (context) => PlanPage(),
+      },
     );
   }
 }
